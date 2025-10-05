@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('/pressStart2.ttf') format('truetype');
+  }
+  
+  * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;              /* prevent scrolling */
+    touch-action: none;            /* block touch gestures */
+    overscroll-behavior: none;     /* block iOS/Android bounce */
+    
+    user-select: none;             /* block text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;   /* block long-press menu */
+}
+
+  
+
+.startPage {
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/Static\ 1.jpg");
+    background-size: cover;       /* scale to cover viewport */
+    background-position: center;  /* center the image */
+    background-repeat: no-repeat;
+
+}
+
+.gameContainer {
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/background.jpg");
+    background-size: cover;       /* scale to cover viewport */
+    background-position: center;  /* center the image */
+    background-repeat: no-repeat;
+
+}
+
+  
+  /* Sheep styling */
+  .sheep {
+    position: absolute;
+    width: 80px; /* can adjust freely */
+    height: auto;
+    z-index: 5;
+    transition: transform 0.1s linear; /* smooth movement */
+  }
+  
+  /* Canvas for drawing finger paths */
+  #gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+  }
+  
