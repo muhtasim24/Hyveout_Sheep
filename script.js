@@ -8,7 +8,12 @@ const gameContainer = document.getElementById('gameContainer');
 const sheepElements = [
   document.getElementById('sheep1'),
   document.getElementById('sheep2'),
-  document.getElementById('sheep3')
+  document.getElementById('sheep3'),
+  document.getElementById('sheep4'),
+  document.getElementById('sheep5'),
+  document.getElementById('sheep6'),
+  document.getElementById('sheep7'),
+  document.getElementById('sheep8')
 ];
 
 const canvas = document.getElementById('gameCanvas');
@@ -38,8 +43,13 @@ document.body.appendChild(scoreDiv);
 // ========================
 const sheepData = [
   { x: 100, y: 100, dx: 2, dy: 1.5, captured: false },
-  { x: 300, y: 400, dx: 1.5, dy: 2, captured: false },
-  { x: 500, y: 600, dx: 2, dy: 1.2, captured: false }
+  { x: 250, y: 350, dx: 1.5, dy: 2, captured: false },
+  { x: 300, y: 320, dx: 2, dy: 1.2, captured: false },
+  { x: 340, y: 420, dx: 2, dy: 1.5, captured: false },
+  { x: 540, y: 300, dx: 1.5, dy: 2, captured: false },
+  { x: 620, y: 600, dx: 2, dy: 1.2, captured: false },
+  { x: 400, y: 620, dx: 2, dy: 1.5, captured: false },
+  { x: 490, y: 500, dx: 1.5, dy: 2, captured: false }
 ];
 
 // ========================
