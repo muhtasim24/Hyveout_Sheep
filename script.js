@@ -29,13 +29,13 @@ const SHEEP_SIZE = 80;
 let score = 0;
 const scoreDiv = document.createElement('div');
 scoreDiv.id = 'score';
-scoreDiv.style.position = 'absolute';
-scoreDiv.style.top = '20px';
-scoreDiv.style.left = '20px';
-scoreDiv.style.fontSize = '24px';
-scoreDiv.style.color = 'white';
-scoreDiv.style.zIndex = 20;
-scoreDiv.textContent = `Score: ${score}`;
+// scoreDiv.style.position = 'absolute';
+// scoreDiv.style.top = '20px';
+// scoreDiv.style.left = '20px';
+// scoreDiv.style.fontSize = '24px';
+// scoreDiv.style.color = 'white';
+// scoreDiv.style.zIndex = 20;
+// scoreDiv.textContent = `Score: ${score}`;
 document.body.appendChild(scoreDiv);
 
 // ========================
