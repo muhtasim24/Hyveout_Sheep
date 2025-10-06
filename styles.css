@@ -37,7 +37,7 @@
 .pfy-text {
     font-family: 'PressStart2P', sans-serif;
     color: white;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+    text-shadow: -2px 3px 0px rgba(0, 0, 0);
 }
 .startPage {
     width: 100%;
@@ -116,3 +116,18 @@
     z-index: 15;
   }
   
+  #footerText {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 2%;           /* distance from bottom */
+    left: 25%;
+    font-family: 'PressStart2P', sans-serif;  /* match your font */
+    font-size: 3vw;       /* scales with screen size */
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 2px 2px 5px black;   /* glow/shadow for visibility */
+    z-index: 9000000;       /* stays above all animations */
+    pointer-events: none; /* text won’t block clicks */
+    word-spacing: -5px;
+  }
