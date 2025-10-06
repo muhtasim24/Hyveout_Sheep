@@ -61,57 +61,69 @@ function updateSheep() {
     sheepElements[index].style.transform = `translate(${sheep.x}px, ${sheep.y}px)`;
   });
 }
-
 // ========================
-// 5. Circle drawing & capture
+// 5. Freehand drawing detection
 // ========================
 let drawing = false;
-let startX = 0, startY = 0;
-let currentX = 0, currentY = 0;
+let path = []; // store all points
 
 function startDraw(x, y) {
   drawing = true;
-  startX = x;
-  startY = y;
-  currentX = x;
-  currentY = y;
+  path = [{ x, y }];
 }
 
 function moveDraw(x, y) {
   if (!drawing) return;
-  currentX = x;
-  currentY = y;
+  path.push({ x, y });
 }
 
 function endDraw() {
   if (!drawing) return;
   drawing = false;
 
-  const radius = Math.hypot(currentX - startX, currentY - startY);
+  // Check if path forms a loop (start & end close)
+  const start = path[0];
+  const end = path[path.length - 1];
+  const dist = Math.hypot(end.x - start.x, end.y - start.y);
 
-  // Check which sheep are inside the circle
-  sheepData.forEach((sheep, index) => {
-    if (sheep.captured) return;
-    const centerX = sheep.x + SHEEP_SIZE / 2;
-    const centerY = sheep.y + SHEEP_SIZE / 2;
-    const distance = Math.hypot(centerX - startX, centerY - startY);
-    if (distance <= radius) {
-      sheep.captured = true;
-      sheepElements[index].style.display = 'none';
-      score += 1;
-      scoreDiv.textContent = `Score: ${score}`;
-    }
-  });
+  if (dist < 50 && path.length > 10) {
+    // Approximate circle center & radius
+    let sumX = 0, sumY = 0;
+    path.forEach(p => { sumX += p.x; sumY += p.y; });
+    const centerX = sumX / path.length;
+    const centerY = sumY / path.length;
 
+    // average radius
+    const avgRadius = path.reduce((acc, p) => acc + Math.hypot(p.x - centerX, p.y - centerY), 0) / path.length;
+
+    // Check if any sheep are inside that circle
+    sheepData.forEach((sheep, index) => {
+      if (sheep.captured) return;
+      const sheepCenterX = sheep.x + SHEEP_SIZE / 2;
+      const sheepCenterY = sheep.y + SHEEP_SIZE / 2;
+      const d = Math.hypot(sheepCenterX - centerX, sheepCenterY - centerY);
+      if (d < avgRadius) {
+        sheep.captured = true;
+        sheepElements[index].style.display = 'none';
+        score += 1;
+        scoreDiv.textContent = `Score: ${score}`;
+      }
+    });
+  }
+
+  // Clear drawing
+  path = [];
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function drawCircle() {
+function drawPath() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  if (drawing) {
-    const radius = Math.hypot(currentX - startX, currentY - startY);
+  if (drawing && path.length > 1) {
     ctx.beginPath();
-    ctx.arc(startX, startY, radius, 0, Math.PI * 2);
+    ctx.moveTo(path[0].x, path[0].y);
+    for (let i = 1; i < path.length; i++) {
+      ctx.lineTo(path[i].x, path[i].y);
+    }
     ctx.strokeStyle = 'rgba(255,255,255,0.8)';
     ctx.lineWidth = 4;
     ctx.stroke();
@@ -140,7 +152,7 @@ canvas.addEventListener('touchend', endDraw);
 // ========================
 function animate() {
   updateSheep();
-  drawCircle();
+  drawPath();
   requestAnimationFrame(animate);
 }
 
