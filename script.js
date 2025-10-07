@@ -43,16 +43,24 @@ document.body.appendChild(scoreDiv);
 // ========================
 // 3. Sheep data
 // ========================
+const screenW = window.innerWidth;
+const screenH = window.innerHeight;
+
 const sheepData = [
-  { x: 120, y: 180, dx: 1.8, dy: 2.2, captured: false },
-  { x: 400, y: 250, dx: 2.5, dy: 1.6, captured: false },
-  { x: 650, y: 150, dx: -2.2, dy: 2.1, captured: false },
-  { x: 850, y: 420, dx: 1.7, dy: -1.9, captured: false },
-  { x: 250, y: 500, dx: -1.5, dy: 2.3, captured: false },
-  { x: 700, y: 550, dx: 2.3, dy: 1.4, captured: false },
-  { x: 950, y: 320, dx: -2.0, dy: 1.8, captured: false },
-  { x: 500, y: 600, dx: 1.6, dy: -2.2, captured: false }
+  { x: screenW * 0.15, y: screenH * 0.2, dx: 1.8, dy: 2.2, captured: false },
+  { x: screenW * 0.35, y: screenH * 0.4, dx: 2.5, dy: 1.6, captured: false },
+  { x: screenW * 0.55, y: screenH * 0.15, dx: -2.2, dy: 2.1, captured: false },
+  { x: screenW * 0.75, y: screenH * 0.5, dx: 1.7, dy: -1.9, captured: false },
+  { x: screenW * 0.25, y: screenH * 0.7, dx: -1.5, dy: 2.3, captured: false },
+  { x: screenW * 0.65, y: screenH * 0.75, dx: 2.3, dy: 1.4, captured: false },
+  { x: screenW * 0.85, y: screenH * 0.35, dx: -2.0, dy: 1.8, captured: false },
+  { x: screenW * 0.45, y: screenH * 0.6, dx: 1.6, dy: -2.2, captured: false }
 ];
+
+// 👇 Add this
+sheepData.forEach((sheep, index) => {
+  sheepElements[index].style.transform = `translate(${sheep.x}px, ${sheep.y}px)`;
+});
 
 // ========================
 // 4. Sheep movement
