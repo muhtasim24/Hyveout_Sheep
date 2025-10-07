@@ -4,6 +4,8 @@
 const startPage = document.getElementById('startPage');
 const startButton = document.getElementById('startButton');
 const gameContainer = document.getElementById('gameContainer');
+const cloudOverlay = document.getElementById('cloud-overlay');
+
 
 const sheepElements = [
   document.getElementById('sheep1'),
@@ -96,7 +98,7 @@ function endDraw() {
   const end = path[path.length - 1];
   const dist = Math.hypot(end.x - start.x, end.y - start.y);
 
-  if (dist < 50 && path.length > 10) {
+  if (dist < 150 && path.length > 10) {
     // Approximate circle center & radius
     let sumX = 0, sumY = 0;
     path.forEach(p => { sumX += p.x; sumY += p.y; });
@@ -172,7 +174,16 @@ function animate() {
 startButton.addEventListener('click', () => {
   startPage.style.display = 'none';
   gameContainer.style.display = 'block';
+  // show all clouds inside overlay
+
   animate();
+
+  cloudOverlay.style.display = "block";
+  // show all clouds inside overlay
+  const clouds = cloudOverlay.querySelectorAll('.cloud');
+  clouds.forEach(cloud => {
+      cloud.style.display = "block";
+  });
 });
 
 // ========================

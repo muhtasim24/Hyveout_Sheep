@@ -77,7 +77,7 @@
   #startButton {
     grid-area: 1 / 1; /* same grid cell as image */
     font-family: 'PressStart2P', sans-serif;
-    margin-top: 85px;
+    margin-bottom: 200px;
     font-size: 1.8rem;
     cursor: pointer;
   }
@@ -114,6 +114,37 @@
     width: 100%;
     height: 100%;
     z-index: 15;
+  }
+
+  .cloud {
+    display: none;
+    position: fixed;
+    width: 50vw; /* adjust size */
+    opacity: 0.7;
+    z-index: 1000;
+    user-select: none;          /* prevent text/image selection */
+    -webkit-user-drag: none;    /* disable dragging on Safari/Chrome */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;       /* prevents accidental taps/long-press */
+  }
+  
+  
+  .cloud1 { top: 20%; animation: moveRight 5s linear infinite; }
+  .cloud2 { top: 30%; animation: moveLeft 4s linear infinite; }
+  .cloud3 { top: 50%; animation: moveRight 4s linear infinite; }
+  .cloud4 { top: 70%; animation: moveLeft 5s linear infinite; }
+  .cloud5 { top: 40%; animation: moveRight 6s linear infinite; }
+    
+  @keyframes moveRight {
+    from { transform: translateX(-60vw); }
+    to { transform: translateX(120vw); } /* move across screen */
+  }
+  
+  @keyframes moveLeft {
+    from { transform: translateX(100vw); }
+    to { transform: translateX(-120vw); } /* move across screen */
   }
   
   #footerText {
