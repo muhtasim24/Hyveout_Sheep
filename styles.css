@@ -146,6 +146,26 @@
     from { transform: translateX(100vw); }
     to { transform: translateX(-120vw); } /* move across screen */
   }
+
+  .circleText {
+    font-family: 'PressStart2P', sans-serif;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(197, 197, 89);           /* yellow text */
+    font-size: 5vw;
+    text-align: center;
+    z-index: 0;
+    text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.8);
+
+    animation: blink 3s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
   
   #footerText {
     position: absolute;
@@ -162,3 +182,4 @@
     pointer-events: none; /* text won’t block clicks */
     word-spacing: -5px;
   }
+

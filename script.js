@@ -5,6 +5,7 @@ const startPage = document.getElementById('startPage');
 const startButton = document.getElementById('startButton');
 const gameContainer = document.getElementById('gameContainer');
 const cloudOverlay = document.getElementById('cloud-overlay');
+const music = document.getElementById('background-music');
 
 
 const sheepElements = [
@@ -185,7 +186,8 @@ startButton.addEventListener('click', () => {
   // show all clouds inside overlay
 
   animate();
-
+  music.play();
+  
   cloudOverlay.style.display = "block";
   // show all clouds inside overlay
   const clouds = cloudOverlay.querySelectorAll('.cloud');
