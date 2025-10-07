@@ -44,14 +44,14 @@ document.body.appendChild(scoreDiv);
 // 3. Sheep data
 // ========================
 const sheepData = [
-  { x: 100, y: 100, dx: 2, dy: 1.5, captured: false },
-  { x: 250, y: 350, dx: 1.5, dy: 2, captured: false },
-  { x: 300, y: 320, dx: 2, dy: 1.2, captured: false },
-  { x: 340, y: 420, dx: 2, dy: 1.5, captured: false },
-  { x: 540, y: 300, dx: 1.5, dy: 2, captured: false },
-  { x: 620, y: 600, dx: 2, dy: 1.2, captured: false },
-  { x: 400, y: 620, dx: 2, dy: 1.5, captured: false },
-  { x: 490, y: 500, dx: 1.5, dy: 2, captured: false }
+  { x: 120, y: 180, dx: 1.8, dy: 2.2, captured: false },
+  { x: 400, y: 250, dx: 2.5, dy: 1.6, captured: false },
+  { x: 650, y: 150, dx: -2.2, dy: 2.1, captured: false },
+  { x: 850, y: 420, dx: 1.7, dy: -1.9, captured: false },
+  { x: 250, y: 500, dx: -1.5, dy: 2.3, captured: false },
+  { x: 700, y: 550, dx: 2.3, dy: 1.4, captured: false },
+  { x: 950, y: 320, dx: -2.0, dy: 1.8, captured: false },
+  { x: 500, y: 600, dx: 1.6, dy: -2.2, captured: false }
 ];
 
 // ========================
