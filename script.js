@@ -6,6 +6,8 @@ const startButton = document.getElementById('startButton');
 const gameContainer = document.getElementById('gameContainer');
 const cloudOverlay = document.getElementById('cloud-overlay');
 const music = document.getElementById('background-music');
+const endScreen = document.getElementById('endGame');
+const endBtn = document.getElementById('endBtn');
 
 
 const sheepElements = [
@@ -16,7 +18,11 @@ const sheepElements = [
   document.getElementById('sheep5'),
   document.getElementById('sheep6'),
   document.getElementById('sheep7'),
-  document.getElementById('sheep8')
+  document.getElementById('sheep8'),
+  document.getElementById('sheep9'),
+  document.getElementById('sheep10'),
+  document.getElementById('sheep11'),
+  document.getElementById('sheep12')
 ];
 
 const canvas = document.getElementById('gameCanvas');
@@ -39,7 +45,7 @@ scoreDiv.id = 'score';
 // scoreDiv.style.color = 'white';
 // scoreDiv.style.zIndex = 20;
 // scoreDiv.textContent = `Score: ${score}`;
-document.body.appendChild(scoreDiv);
+// document.body.appendChild(scoreDiv);
 
 // ========================
 // 3. Sheep data
@@ -48,15 +54,20 @@ const screenW = window.innerWidth;
 const screenH = window.innerHeight;
 
 const sheepData = [
-  { x: screenW * 0.15, y: screenH * 0.2, dx: 1.8, dy: 2.2, captured: false },
-  { x: screenW * 0.35, y: screenH * 0.4, dx: 2.5, dy: 1.6, captured: false },
-  { x: screenW * 0.55, y: screenH * 0.15, dx: -2.2, dy: 2.1, captured: false },
-  { x: screenW * 0.75, y: screenH * 0.5, dx: 1.7, dy: -1.9, captured: false },
-  { x: screenW * 0.25, y: screenH * 0.7, dx: -1.5, dy: 2.3, captured: false },
-  { x: screenW * 0.65, y: screenH * 0.75, dx: 2.3, dy: 1.4, captured: false },
-  { x: screenW * 0.85, y: screenH * 0.35, dx: -2.0, dy: 1.8, captured: false },
-  { x: screenW * 0.45, y: screenH * 0.6, dx: 1.6, dy: -2.2, captured: false }
+  { x: screenW * 0.1,  y: screenH * 0.2,  dx: 1.5,  dy: 2.0,  captured: false },
+  { x: screenW * 0.3,  y: screenH * 0.35, dx: -2.2, dy: 1.7,  captured: false },
+  { x: screenW * 0.5,  y: screenH * 0.15, dx: 2.0,  dy: -1.8, captured: false },
+  { x: screenW * 0.7,  y: screenH * 0.25, dx: -1.9, dy: 2.3,  captured: false },
+  { x: screenW * 0.85, y: screenH * 0.45, dx: -2.5, dy: 1.5,  captured: false },
+  { x: screenW * 0.2,  y: screenH * 0.6,  dx: 1.7,  dy: -2.1, captured: false },
+  { x: screenW * 0.4,  y: screenH * 0.55, dx: -1.6, dy: 2.4,  captured: false },
+  { x: screenW * 0.6,  y: screenH * 0.75, dx: 2.2,  dy: -1.6, captured: false },
+  { x: screenW * 0.8,  y: screenH * 0.65, dx: -2.0, dy: 1.9,  captured: false },
+  { x: screenW * 0.25, y: screenH * 0.8,  dx: 1.8,  dy: -2.2, captured: false },
+  { x: screenW * 0.55, y: screenH * 0.9,  dx: -1.4, dy: -1.8, captured: false },
+  { x: screenW * 0.75, y: screenH * 0.85, dx: 2.1,  dy: -1.5, captured: false }
 ];
+
 
 // 👇 Add this
 sheepData.forEach((sheep, index) => {
@@ -81,6 +92,18 @@ function updateSheep() {
 
     sheepElements[index].style.transform = `translate(${sheep.x}px, ${sheep.y}px)`;
   });
+}
+// CHECKING FOR GAME ENDING
+function checkAllCaptured() {
+  const allCaptured = sheepData.every(sheep => sheep.captured);
+  if (allCaptured) {
+    endGame();
+  }
+}
+
+function endGame() {
+  gameContainer.style.display = "none";
+  endScreen.style.display = 'block';
 }
 // ========================
 // 5. Freehand drawing detection
@@ -128,6 +151,7 @@ function endDraw() {
         sheepElements[index].style.display = 'none';
         score += 1;
         scoreDiv.textContent = `Score: ${score}`;
+        checkAllCaptured();
       }
     });
   }
@@ -203,3 +227,7 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
+endBtn.addEventListener('click', () => {
+  window.location.reload();
+})
