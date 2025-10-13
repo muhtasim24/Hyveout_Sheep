@@ -116,7 +116,6 @@
   gap: 10px;
   justify-items: center;
   align-items: center;
-  width: 100%;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -157,15 +156,15 @@
 }
 
 .endCloud {
-  width: 65vw;
+  width: 55vw;
   grid-area: 1 / 1; /* ensures both elements overlap */
 }
 
 #endBtn {
   grid-area: 1 / 1; /* same grid cell as image */
   font-family: 'PressStart2P', sans-serif;
-  margin-bottom: 170px;
-  font-size: 1.1rem;
+  margin-bottom: 140px;
+  font-size: 1.0rem;
   cursor: pointer;
 }
 
