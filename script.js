@@ -102,8 +102,11 @@ function checkAllCaptured() {
 }
 
 function endGame() {
+  gameContainer.classList.remove("visible");
   gameContainer.style.display = "none";
-  endScreen.style.display = 'block';
+  endScreen.classList.remove('hidden');
+  endScreen.classList.add('visible');
+  console.log(endScreen.classList)
 }
 // ========================
 // 5. Freehand drawing detection

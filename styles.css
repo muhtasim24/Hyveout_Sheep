@@ -98,16 +98,16 @@
 }
 
 .endGame {
-  display: block;
   width: 100%;
   height: 100%;
+
   background: 
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  /* dark overlay */
     url("/assets/background.jpg");
   background-size: cover;       /* scale to cover viewport */
   background-position: center;  /* center the image */
   background-repeat: no-repeat;
-  z-index: 1;
+
 }
 
 .collection-grid { 
@@ -163,13 +163,29 @@
 #endBtn {
   grid-area: 1 / 1; /* same grid cell as image */
   font-family: 'PressStart2P', sans-serif;
-  margin-bottom: 125px;
+  margin-bottom: 130px;
   font-size: 0.9rem;
   cursor: pointer;
 }
 
 #endBtn:hover {
   color: white;
+}
+
+.page {
+  opacity: 0;
+  transition: opacity 2s ease; /* control fade speed */
+  pointer-events: none;
+}
+
+.page.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.page.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
   /* Sheep styling */
   .sheep {
