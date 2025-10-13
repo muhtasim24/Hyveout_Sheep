@@ -152,19 +152,19 @@
   text-align: center;
   font-family: 'PressStart2P', sans-serif;
   font-size: 1.2rem;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .endCloud {
-  width: 55vw;
+  width: 50vw;
   grid-area: 1 / 1; /* ensures both elements overlap */
 }
 
 #endBtn {
   grid-area: 1 / 1; /* same grid cell as image */
   font-family: 'PressStart2P', sans-serif;
-  margin-bottom: 140px;
-  font-size: 1.0rem;
+  margin-bottom: 125px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
