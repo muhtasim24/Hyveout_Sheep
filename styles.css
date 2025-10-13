@@ -276,3 +276,108 @@
     word-spacing: -5px;
   }
 
+@media (min-width: 768px) {
+  .startPage {
+      background-image: url("/assets/desktop_startBackground.jpg");
+  }
+
+  .pfyLogo {
+    margin-top: 10px;
+    width: 15vw;
+}
+
+ .startCloud {
+    width: 20vw;
+    grid-area: 1 / 1; /* ensures both elements overlap */
+  }
+
+  #startButton {
+    margin-bottom: 250px;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .gameContainer {
+    background-image: url("/assets/desktop_gameBackground.jpg");
+  }
+
+  .sheep {
+    width: 110px; /* can adjust freely */
+  }
+
+  .circleText {
+    font-size: 2vw;
+    color: rgb(233, 233, 103);           /* yellow text */
+  }
+
+  .cloud{
+    width: 15vw;
+  }
+
+
+
+  .endGame {
+  width: 100%;
+  height: 100%;
+
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  /* dark overlay */
+    url("/assets/background.jpg");
+  background-size: cover;       /* scale to cover viewport */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat;
+
+}
+
+.collection-grid { 
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.sheep-card {
+  margin-bottom: -5px;
+}
+
+.card-img {
+  width: 5vw;   /* 3 per row comfortably (3×28 = 84 + gaps) */
+  height: auto;
+}
+
+.card-text {
+  font-family: 'PressStart2P', sans-serif;
+  font-size: 0.6rem;
+  color: white;
+}
+
+.play-again {
+  width: 100vw; /* adjust based on image size */
+  margin-top: 20px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.and-text{
+  color: rgb(241, 241, 18);   
+  text-align: center;
+  font-family: 'PressStart2P', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.endCloud {
+  width: 17vw;
+}
+
+#endBtn {
+  margin-bottom: 200px;
+  font-size: 1.3rem;
+
+}
+  #footerText {
+    font-size: 1vw;       /* scales with screen size */
+    text-align: center;
+    left: 41.0%;
+
+  }
+
+}
