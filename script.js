@@ -8,7 +8,7 @@ const cloudOverlay = document.getElementById('cloud-overlay');
 const music = document.getElementById('background-music');
 const endScreen = document.getElementById('endGame');
 const endBtn = document.getElementById('endBtn');
-
+const endCloud = document.getElementById('endCloud');
 
 const sheepElements = [
   document.getElementById('sheep1'),
@@ -103,9 +103,11 @@ function checkAllCaptured() {
 
 function endGame() {
   gameContainer.classList.remove("visible");
+  gameContainer.classList.remove('interactive');
   gameContainer.style.display = "none";
   endScreen.classList.remove('hidden');
   endScreen.classList.add('visible');
+  endScreen.classList.add('interactive');
   console.log(endScreen.classList)
 }
 // ========================

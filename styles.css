@@ -180,6 +180,9 @@
 
 .page.visible {
   opacity: 1;
+}
+
+.page.interactive {
   pointer-events: all;
 }
 
