@@ -9,6 +9,7 @@ const music = document.getElementById('background-music');
 const endScreen = document.getElementById('endGame');
 const endBtn = document.getElementById('endBtn');
 const endCloud = document.getElementById('endCloud');
+const collectSound = document.getElementById('collect-sfx');
 
 const sheepElements = [
   document.getElementById('sheep1'),
@@ -107,7 +108,7 @@ function endGame() {
   gameContainer.style.display = "none";
   endScreen.classList.remove('hidden');
   endScreen.classList.add('visible');
-  endScreen.classList.add('interactive');
+  endScreen.classList.add('interactive');    
   console.log(endScreen.classList)
 }
 // ========================
@@ -155,6 +156,7 @@ function endDraw() {
         sheep.captured = true;
         sheepElements[index].style.display = 'none';
         score += 1;
+        collectSound.play();
         scoreDiv.textContent = `Score: ${score}`;
         checkAllCaptured();
       }
