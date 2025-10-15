@@ -142,14 +142,6 @@
   color: white;
 }
 
-.play-again {
-  display: grid;
-  place-items: center; /* centers both horizontally and vertically */
-  width: 100vw; /* adjust based on image size */
-  margin-top: 20px;
-  animation: float 2s ease-in-out infinite;
-}
-
 .and-text{
   color: rgb(241, 241, 18);   
   text-align: center;
@@ -158,16 +150,26 @@
   margin-bottom: 30px;
 }
 
+.play-again {
+  position: relative;
+  display: grid;
+  grid-row: 2;
+  place-items: center; /* centers both horizontally and vertically */
+  animation: float 2s ease-in-out infinite;
+}
+
 .endCloud {
-  width: 40vw;
+  width: clamp(99px, 40vw, 180px);
   grid-area: 1 / 1; /* ensures both elements overlap */
 }
 
 #endBtn {
+  position: absolute;
+  bottom: 68%;
+  transform: translateY(10%); /* fine tune vertical alignment */
   grid-area: 1 / 1; /* same grid cell as image */
   font-family: 'PressStart2P', sans-serif;
-  margin-bottom: 100px;
-  font-size: 0.75rem;
+  font-size: clamp(12px, 0.75rem, 70px);
   cursor: pointer;
 }
 
@@ -280,6 +282,7 @@
     white-space: nowrap;
   }
 
+/* ------------------------------------------ DESKTOP ------------------------------------------------------- */
 @media (min-width: 768px) {
   .startPage {
       background-image: url("/assets/desktop_startBackground.jpg");
@@ -359,15 +362,12 @@
 }
 
 .play-again {
-  width: 100vw; /* adjust based on image size */
   margin-top: 20px;
   animation: float 2s ease-in-out infinite;
 }
 
 .and-text{
   color: rgb(241, 241, 18);   
-  text-align: center;
-  font-family: 'PressStart2P', sans-serif;
   font-size: 1.2rem;
   margin-bottom: 30px;
 }
