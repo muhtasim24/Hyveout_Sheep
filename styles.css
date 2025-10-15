@@ -33,12 +33,14 @@
 }
 .pfyLogo {
     margin-top: 10px;
-    width: 45vw;
+    width: clamp(50px, 45vw, 200px);
 }
 .pfy-text {
     font-family: 'PressStart2P', sans-serif;
+    font-size: clamp(10px, 8vw, 40px);
     color: white;
     text-shadow: -2px 3px 0px rgba(0, 0, 0);
+    margin-bottom: 40px;
 }
 .startPage {
     width: 100%;
@@ -51,9 +53,9 @@
 
 .play {
     display: grid;
+    grid-row: 2;
     place-items: center; /* centers both horizontally and vertically */
-    width: 100vw; /* adjust based on image size */
-    margin-top: 20px;
+    
     animation: float 2s ease-in-out infinite;
 }
 
@@ -71,7 +73,7 @@
 
   
   .startCloud {
-    width: 75vw;
+    width: clamp(90px, 75vw, 300px);
     grid-area: 1 / 1; /* ensures both elements overlap */
   }
   
@@ -79,7 +81,7 @@
     grid-area: 1 / 1; /* same grid cell as image */
     font-family: 'PressStart2P', sans-serif;
     margin-bottom: 200px;
-    font-size: 1.8rem;
+    font-size: clamp(20px, 4vw, 50px);
     cursor: pointer;
   }
   
@@ -268,12 +270,13 @@
     bottom: 2%;           /* distance from bottom */
     left: 25%;
     font-family: 'PressStart2P', sans-serif;  /* match your font */
-    font-size: 3vw;       /* scales with screen size */
+    font-size: 3vw;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 2px 2px 5px black;   /* glow/shadow for visibility */
     z-index: 9000000;       /* stays above all animations */
     pointer-events: none; /* text won’t block clicks */
     word-spacing: -5px;
+    white-space: nowrap;
   }
 
 @media (min-width: 768px) {
@@ -283,11 +286,16 @@
 
   .pfyLogo {
     margin-top: 10px;
-    width: 15vw;
-}
+    width: clamp(200px, 15vw, 300px)
+  }
+  
+  .pfy-text {
+    font-size: clamp(10px, 5vw, 50px);
+  }
+
 
  .startCloud {
-    width: 20vw;
+    width: clamp(250px, 20vw, 500px);
     grid-area: 1 / 1; /* ensures both elements overlap */
   }
 
@@ -373,11 +381,10 @@
   font-size: 1.3rem;
 
 }
-  #footerText {
-    font-size: 1vw;       /* scales with screen size */
-    text-align: center;
-    left: 41.0%;
 
+  #footerText {
+    font-size: clamp(20px, 1vw, 100px);     /* scales with screen size */
+    left: 41%;
   }
 
 }

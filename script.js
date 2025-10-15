@@ -104,10 +104,10 @@ function checkAllCaptured() {
 
 function endGame() {
   gameContainer.classList.remove("visible");
-  gameContainer.classList.remove('interactive');
   gameContainer.style.display = "none";
   endScreen.classList.remove('hidden');
   endScreen.classList.add('visible');
+  gameContainer.classList.remove('interactive');
   endScreen.classList.add('interactive');    
   console.log(endScreen.classList)
 }
