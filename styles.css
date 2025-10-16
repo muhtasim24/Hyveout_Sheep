@@ -132,7 +132,7 @@
 }
 
 .card-img {
-  width: 15vw;   /* 3 per row comfortably (3×28 = 84 + gaps) */
+  width: clamp(40px, 15vw, 100px);   /* 3 per row comfortably (3×28 = 84 + gaps) */
   height: auto;
 }
 
@@ -351,7 +351,7 @@
 }
 
 .card-img {
-  width: 5vw;   /* 3 per row comfortably (3×28 = 84 + gaps) */
+  width: clamp(80px, 5vw, 100px);   /* 3 per row comfortably (3×28 = 84 + gaps) */
   height: auto;
 }
 
@@ -362,7 +362,6 @@
 }
 
 .play-again {
-  margin-top: 20px;
   animation: float 2s ease-in-out infinite;
 }
 
@@ -373,12 +372,13 @@
 }
 
 .endCloud {
-  width: 17vw;
+  width: clamp(215px, 17vw, 300px);
 }
 
 #endBtn {
-  margin-bottom: 200px;
-  font-size: 1.3rem;
+  font-size: clamp(5px, 1.2rem, 80px);
+  bottom: 69%;
+  transform: translateY(10%); /* fine tune vertical alignment */
 
 }
 
