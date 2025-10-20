@@ -371,11 +371,11 @@
 .and-text{
   color: rgb(241, 241, 18);   
   font-size: 1.5rem;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .endCloud {
-  width: clamp(215px, 17vw, 300px);
+  width: clamp(230px, 17vw, 300px);
 }
 
 #endBtn {
