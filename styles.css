@@ -379,8 +379,8 @@
 }
 
 #endBtn {
-  font-size: clamp(5px, 1.2rem, 80px);
-  bottom: 69%;
+  font-size: clamp(1.0px, 1.15rem, 80px);
+  bottom: 68%;
   transform: translateY(10%); /* fine tune vertical alignment */
 
 }
