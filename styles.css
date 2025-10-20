@@ -380,7 +380,7 @@
 
 #endBtn {
   font-size: clamp(1.0px, 1.15rem, 80px);
-  bottom: 68%;
+  bottom: 69%;
   transform: translateY(10%); /* fine tune vertical alignment */
 
 }
